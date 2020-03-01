@@ -1,29 +1,31 @@
 package com.gildedrose;
 
-class GildedRose {
-    Item[] items;
+import java.util.ArrayList;
 
-    public GildedRose(Item[] items) {
+class GildedRose {
+    ArrayList<Item> items;
+
+    public GildedRose(ArrayList<Item> items) {
         this.items = items;
     }
 
     public void update_quality() {
-        for (int i = 0; i < items.length; i++) {
-            switch (items[i].name) {
+        for (Item item:items) {
+            switch (item.name) {
                 case "Aged Brie":
-                    items[i].sell_in = update_item_sell_in(items[i].sell_in);
-                    items[i].quality = update_item_quality_case_aged_brie_by_quality_and_sell_in(items[i].quality, items[i].sell_in);
+                    item.sell_in = update_item_sell_in(item.sell_in);
+                    item.quality = update_item_quality_case_aged_brie_by_quality_and_sell_in(item.quality, item.sell_in);
 
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    items[i].sell_in = update_item_sell_in(items[i].sell_in);
-                    items[i].quality = update_item_quality_case_bptatc_by_quality_and_sell_in(items[i].quality, items[i].sell_in);
+                    item.sell_in = update_item_sell_in(item.sell_in);
+                    item.quality = update_item_quality_case_bptatc_by_quality_and_sell_in(item.quality, item.sell_in);
 
                 case "Sulfuras, Hand of Ragnaros":
                     continue;
 
                 default:
-                    items[i].sell_in = update_item_sell_in(items[i].sell_in);
-                    items[i].quality = update_item_quality_case_default_by_quality_and_sell_in(items[i].quality, items[i].sell_in);
+                    item.sell_in = update_item_sell_in(item.sell_in);
+                    item.quality = update_item_quality_case_default_by_quality_and_sell_in(item.quality, item.sell_in);
             }
         }
     }
