@@ -8,7 +8,7 @@ import org.junit.Test;
 public class GildedRoseTest {
 
     @Test
-    public void foo() {
+    public void should_return_an_app_with_a_both_quality_and_sellin_decreased_one_item_when_given_an_item() {
         Item[] items = new Item[] { new Item("foo", 1, 5) };
         GildedRose app = new GildedRose(items);
         app.update_quality();
