@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GildedRoseSafetyNet {
     @Test
-    public void should_get_a_string_which_equal_with_baseline() throws IOException {
+    public void shouldGetAStringWhichEqualWithBaseline() throws IOException {
         String output = TextTestFixture.getBaseLine();
         String baseLine = Files.toString(new File("src/test/baseLine.txt"),UTF_8);
         assertEquals(baseLine,output);
