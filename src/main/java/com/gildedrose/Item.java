@@ -19,18 +19,6 @@ public class Item {
         return this.name + ", " + this.sell_in + ", " + this.quality;
     }
 
-    public boolean isBackstagePasses(){
-        return false;
-    }
-
-    public boolean isSulfuras() {
-        return false;
-    }
-
-    public boolean isAgedBrie() {
-        return false;
-    }
-
     public void passOneDay() {
         updateSellIn();
         updateQuality();
@@ -40,14 +28,22 @@ public class Item {
     }
 
     public void updateQuality() {
-        if (quality >0) {
+        decreaseQuality();
+    }
+
+    public void updateQualityAfterExpiration() {
+        decreaseQuality();
+    }
+
+    protected void decreaseQuality() {
+        if (quality > 0) {
             quality = quality - 1;
         }
     }
 
-    public void updateQualityAfterExpiration() {
-        if (quality > 0) {
-            quality = quality - 1;;
+    protected void increaseQuality() {
+        if (quality < 50) {
+            quality = quality + 1;
         }
     }
 
@@ -58,4 +54,6 @@ public class Item {
     public void updateSellIn() {
         sell_in = sell_in - 1;
     }
+
+
 }
